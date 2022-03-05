@@ -1,1 +1,0 @@
-# cm_kotlin_challenge
