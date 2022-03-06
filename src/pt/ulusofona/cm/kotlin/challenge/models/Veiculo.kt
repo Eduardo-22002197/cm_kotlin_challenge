@@ -4,7 +4,7 @@ import pt.ulusofona.cm.kotlin.challenge.exceptions.AlterarPosicaoException
 import pt.ulusofona.cm.kotlin.challenge.interfaces.Movimentavel
 import java.util.Date
 
-open class Veiculo(open var identificador: String): Movimentavel {
+open class Veiculo(var identificador: String): Movimentavel {
     var posicao: Posicao = Posicao()
     var dataDeAquisicao: Date = Date()
 
