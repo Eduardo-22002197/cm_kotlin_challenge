@@ -1,4 +1,4 @@
-package pt.ulusofona.cm.kotlin.challenge.modules
+package pt.ulusofona.cm.kotlin.challenge.models
 
 import pt.ulusofona.cm.kotlin.challenge.exceptions.AlterarPosicaoException
 import pt.ulusofona.cm.kotlin.challenge.exceptions.VeiculoDesligadoException
