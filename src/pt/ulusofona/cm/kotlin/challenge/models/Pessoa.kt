@@ -5,7 +5,7 @@ import pt.ulusofona.cm.kotlin.challenge.interfaces.Movimentavel
 import java.util.Date
 
 data class Pessoa(var nome: String, var dataDeNascimento: Date): Movimentavel {
-    var veiculos = null
+    var veiculos = listOf<Veiculo>()
     var posicao: Posicao = Posicao()
     var carta: Carta? = null
 
