@@ -2,7 +2,9 @@ package pt.ulusofona.cm.kotlin.challenge.models
 
 import pt.ulusofona.cm.kotlin.challenge.exceptions.AlterarPosicaoException
 import pt.ulusofona.cm.kotlin.challenge.exceptions.MenorDeIdadeException
+import pt.ulusofona.cm.kotlin.challenge.exceptions.PessoaSemCartaException
 import pt.ulusofona.cm.kotlin.challenge.exceptions.VeiculoNaoEncontradoException
+import pt.ulusofona.cm.kotlin.challenge.interfaces.Ligavel
 import pt.ulusofona.cm.kotlin.challenge.interfaces.Movimentavel
 import java.util.Date
 import java.text.SimpleDateFormat;
@@ -45,11 +47,16 @@ data class Pessoa(var nome: String, var dataDeNascimento: Date): Movimentavel {
     fun moverVeiculoPara(identificador: String, x: Int, y: Int) {
         for(tempVeiculo in veiculos) {
             if (tempVeiculo.identificador == identificador) {
-                if (tempVeiculo.posicao.x != x && tempVeiculo.posicao.y != y) {
-                    tempVeiculo.posicao.alteraPosicaoPara(x, y)
+                if(temCarta() && tempVeiculo is Ligavel) {
+                    if (tempVeiculo.posicao.x != x && tempVeiculo.posicao.y != y) {
+                        tempVeiculo.posicao.alteraPosicaoPara(x, y)
+
+                    } else {
+                        throw AlterarPosicaoException()
+                    }
 
                 } else {
-                    throw AlterarPosicaoException()
+                    throw PessoaSemCartaException(nome)
                 }
             }
         }
