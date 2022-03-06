@@ -2,13 +2,14 @@ package pt.ulusofona.cm.kotlin.challenge.models
 
 import pt.ulusofona.cm.kotlin.challenge.exceptions.AlterarPosicaoException
 import pt.ulusofona.cm.kotlin.challenge.interfaces.Movimentavel
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
+import java.text.SimpleDateFormat
+import java.util.Date
 
 open class Veiculo(open var identificador: String): Movimentavel {
     var posicao: Posicao = Posicao()
-    val dateTime: LocalDateTime = LocalDateTime.now()
-    var dataDeAquisicao: String = dateTime.format(DateTimeFormatter.ofPattern("M/d/y"))
+    val dateTime: Date = Date()
+    var DateFor: SimpleDateFormat = SimpleDateFormat("dd/MM/yyyy")
+    var dataDeAquisicao: String = DateFor.format(dateTime)
 
     open fun requerCarta(): Boolean {
         return false

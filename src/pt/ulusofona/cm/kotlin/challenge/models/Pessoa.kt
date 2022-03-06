@@ -2,10 +2,14 @@ package pt.ulusofona.cm.kotlin.challenge.models
 
 import pt.ulusofona.cm.kotlin.challenge.exceptions.AlterarPosicaoException
 import pt.ulusofona.cm.kotlin.challenge.interfaces.Movimentavel
+import java.util.Date
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
+import java.text.SimpleDateFormat;
 
-data class Pessoa(var nome: String, var dataDeNascimento: String = LocalDateTime.now().format(DateTimeFormatter.ofPattern("M/d/y"))): Movimentavel {
+data class Pessoa(var nome: String, var dataDeNascimento: Date): Movimentavel {
+    var DateFor: SimpleDateFormat = SimpleDateFormat("dd/MM/yyyy")
+    var stringDate: String = DateFor.format(dataDeNascimento)
     var veiculos = listOf<Veiculo>()
     var posicao: Posicao = Posicao()
     var carta: Carta? = null
@@ -49,6 +53,6 @@ data class Pessoa(var nome: String, var dataDeNascimento: String = LocalDateTime
     }
 
     override fun toString(): String {
-        return "Pessoa | $nome | $dataDeNascimento | $posicao"
+        return "Pessoa | $nome | $stringDate | $posicao"
     }
 }
