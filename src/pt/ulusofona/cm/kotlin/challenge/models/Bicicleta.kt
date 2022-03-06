@@ -3,7 +3,7 @@ package pt.ulusofona.cm.kotlin.challenge.models
 import pt.ulusofona.cm.kotlin.challenge.exceptions.AlterarPosicaoException
 import pt.ulusofona.cm.kotlin.challenge.interfaces.Movimentavel
 
-class Bicicleta(private val identificador: String): Veiculo(identificador), Movimentavel {
+class Bicicleta(val identificador: String): Veiculo(identificador), Movimentavel {
     override fun requerCarta(): Boolean {
         return false
     }
