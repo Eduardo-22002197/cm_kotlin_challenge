@@ -8,7 +8,7 @@ import java.util.Date
 open class Veiculo(open var identificador: String): Movimentavel {
     var posicao: Posicao = Posicao()
     val dateTime: Date = Date()
-    var DateFor: SimpleDateFormat = SimpleDateFormat("dd/MM/yyyy")
+    var DateFor: SimpleDateFormat = SimpleDateFormat("dd-MM-yyyy")
     var dataDeAquisicao: String = DateFor.format(dateTime)
 
     open fun requerCarta(): Boolean {
